@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* background: url(https://cdn3.ivivu.com/2023/10/du-lich-hue-ivivu.jpg);
+  background-size: cover; */
+}
+.header {
+  margin-top: -30px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  border-radius: 999px;
+
+  /* background: url(https://reviewedu.net/wp-content/uploads/2022/07/271091266_436395974868594_4417520709094888941_n.jpg);
+  background-size: cover;
+  background-position-y: -50px; */
+}
+
+/* mainform css */
+.main__form {
+  margin-top: 20px;
+}
+.form__group {
+  margin-bottom: 10px;
+}
+.form__input input {
+  width: 50%;
+  padding: 5px;
+}
+.form__group input[type="radio"] {
+  margin-left: 50px;
+}
+.form__button {
+  margin-top: 30px;
+}
+.button {
+  width: 10%;
+  padding: 5px;
+  border-radius: 99px;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+}
+#btnAdd,
+#btnSave,
+#btnEdit,
+#btnRemove {
+  margin-left: 20px;
+}
+#birthdayError {
+  color: red;
+  margin-left: 20px;
+  font-style: italic;
+}
+.error {
+  color: red;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+/* maintable css */
+.main__table {
+  margin-top: 50px;
+}
+.table {
+  width: 100%;
+  border: 1px solid #000000;
+}
+th,
+td {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #000000;
+}
