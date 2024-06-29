@@ -90,19 +90,26 @@
             <input
               type="button"
               class="button"
-              id="btnSave"
-              onclick="ADDStudent()"
               value="Thêm mới"
+              id="btnAdd"
+              onclick="ADDStudent()"
+            />
+            <input type="button" class="button" value="Sửa" id="btnEdit" />
+            <input type="button" class="button" value="Xóa" id="btnRemove" />
+            <input
+              type="button"
+              class="button"
+              value="Lưu Storage"
+              id="btnSetStorage"
+              onclick="SetStorage()"
             />
             <input
               type="button"
               class="button"
-              value="Lưu lại"
-              id="btnSave"
-              onclick="save()"
+              value="Lấy Storage"
+              id="btnGetStorage"
+              onclick="GetStorage()"
             />
-            <input type="button" class="button" value="Sửa" id="btnEdit" />
-            <input type="button" class="button" value="Xóa" id="btnRemove" />
           </div>
         </fieldset>
       </div>
@@ -127,9 +134,7 @@
             </tr>
           </thead>
           <tbody id="tbodyStudent">
-            <tr>
-              
-            </tr>
+            <tr></tr>
           </tbody>
         </table>
       </div>

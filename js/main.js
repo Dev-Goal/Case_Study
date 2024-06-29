@@ -163,3 +163,13 @@ function CreateTd(className, value) {
   td.innerHTML = value;
   return td;
 }
+function SetStorage() {
+  const jsonStudentList = JSON.stringify(studentList.newStudentList);
+  localStorage.setItem("StudentList", jsonStudentList);
+}
+function GetStorage() {
+  const jsonStudentList = localStorage.getItem("StudentList");
+  const arrayStudentList = JSON.parse(jsonStudentList);
+  studentList.newStudentList = arrayStudentList;
+  UpdateStudent(studentList);
+}

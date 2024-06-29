@@ -41,6 +41,7 @@ body {
   margin-top: 30px;
 }
 .button {
+  /* display: block;/ */
   width: 10%;
   padding: 5px;
   border-radius: 99px;
@@ -53,9 +54,10 @@ body {
   );
 }
 #btnAdd,
-#btnSave,
 #btnEdit,
-#btnRemove {
+#btnRemove,
+#btnSetStorage,
+#btnGetStorage {
   margin-left: 20px;
 }
 #birthdayError {
