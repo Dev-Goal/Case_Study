@@ -13,7 +13,7 @@
     <div class="main">
       <div class="main__form">
         <fieldset>
-          <legend style="text-align: center">
+          <legend style="text-align: center;">
             Thông tin sinh viên đăng ký
           </legend>
           <div class="form__group form__label">
@@ -32,9 +32,29 @@
           </div>
           <div class="form__group form__label">
             <label for="form__gender">Giới tính</label>
-            <input type="radio" name="gender" value="Nam" id="male" /> Nam
-            <input type="radio" name="gender" value="Nữ" id="female" /> Nữ
-            <input type="radio" name="gender" value="Khác" id="other" />Khác
+            <input
+              type="radio"
+              name="gender"
+              value="Nam"
+              id="male"
+              style="cursor: pointer"
+            />
+            Nam
+            <input
+              type="radio"
+              name="gender"
+              value="Nữ"
+              id="female"
+              style="cursor: pointer"
+            />
+            Nữ
+            <input
+              type="radio"
+              name="gender"
+              value="Khác"
+              id="other"
+              style="cursor: pointer"
+            />Khác
             <span id="gender__error" class="error"></span>
           </div>
           <div class="form__group form__label">
@@ -92,10 +112,16 @@
               class="button"
               value="Thêm mới"
               id="btnAdd"
-              onclick="ADDStudent()"
+              onclick="AddStudent()"
             />
             <input type="button" class="button" value="Sửa" id="btnEdit" />
-            <input type="button" class="button" value="Xóa" id="btnRemove" />
+            <input
+              type="button"
+              class="button"
+              value="Xóa"
+              id="btnRemove"
+              onclick="RemoveStudent()"
+            />
             <input
               type="button"
               class="button"
@@ -103,15 +129,31 @@
               id="btnSetStorage"
               onclick="SetStorage()"
             />
-            <input
+            <!-- <input
               type="button"
               class="button"
               value="Lấy Storage"
               id="btnGetStorage"
               onclick="GetStorage()"
-            />
+            /> -->
           </div>
         </fieldset>
+      </div>
+      <div class="main__search">
+        <!-- <input
+          type="button"
+          class="button"
+          value="Tìm kiếm"
+          onclick="SearchStudent()"
+        /> -->
+        <label class="label__search">Tìm kiếm</label>
+        <input
+          type="text"
+          id="form__search"
+          placeholder="Nhập Mã sinh viên..."
+          onkeyup="SearchStudent()"
+          onchange="SearchStudent()"
+        />
       </div>
       <div class="main__table">
         <table class="table">

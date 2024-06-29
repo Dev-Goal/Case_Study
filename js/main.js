@@ -4,8 +4,7 @@ function ElementID(id) {
   const element = document.getElementById(id);
   return element;
 }
-
-function ADDStudent() {
+function AddStudent() {
   fullname = ElementID("form__name").value;
   masv = ElementID("form__masv").value;
   gender = "";
@@ -133,6 +132,12 @@ function UpdateStudent(StudentList) {
     const st = studentList.newStudentList[i];
     const tr = document.createElement("tr");
     const tdCheckBox = document.createElement("td");
+    const cbMasv = document.createElement("input");
+    cbMasv.setAttribute("class", "cbMasv");
+    cbMasv.setAttribute("type", "checkbox");
+    cbMasv.setAttribute("value", st.masv);
+    tdCheckBox.append(cbMasv);
+    // console.log(cbMasv);
     const tdFullname = CreateTd("fullname", st.fullname);
     const tdMasv = CreateTd("masv", st.masv);
     const tdGender = CreateTd("gender", st.gender);
@@ -167,9 +172,27 @@ function SetStorage() {
   const jsonStudentList = JSON.stringify(studentList.newStudentList);
   localStorage.setItem("StudentList", jsonStudentList);
 }
+// SetStorage();
 function GetStorage() {
   const jsonStudentList = localStorage.getItem("StudentList");
   const arrayStudentList = JSON.parse(jsonStudentList);
   studentList.newStudentList = arrayStudentList;
   UpdateStudent(studentList);
+}
+GetStorage();
+function RemoveStudent() {
+  const listMaSV = document.getElementsByClassName("cbMasv");
+  const listChoseMaSV = [];
+  for (let i = 0; i < listMaSV.length; i++) {
+    if (listMaSV[i].checked) {
+      listChoseMaSV.push(listMaSV[i].value);
+    }
+  }
+  studentList.RemoveStudent(listChoseMaSV);
+  UpdateStudent(studentList);
+}
+function SearchStudent() {
+  const search = ElementID("form__search").value;
+  const listSearchStudent = studentList.SearchStudent(search);
+  UpdateStudent(listSearchStudent);
 }

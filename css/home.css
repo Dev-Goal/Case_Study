@@ -52,13 +52,13 @@ body {
     #2bd2ff 52%,
     #2bff88 90%
   );
+  cursor: pointer;
 }
 #btnAdd,
 #btnEdit,
 #btnRemove,
-#btnSetStorage,
-#btnGetStorage {
-  margin-left: 20px;
+#btnSetStorage {
+  margin-left: 170px;
 }
 #birthdayError {
   color: red;
@@ -71,6 +71,22 @@ body {
   margin-left: 20px;
 }
 
+/* main search  */
+.main__search{
+  margin-top: 50px;
+}
+.label__search{
+  margin-left: 20px;
+  font-style: italic;
+}
+#form__search{
+  padding: 5px;
+  margin-left: 10px;
+  width: 1363px;
+}
+
+
+
 /* maintable css */
 .main__table {
   margin-top: 50px;
@@ -78,6 +94,9 @@ body {
 .table {
   width: 100%;
   border: 1px solid #000000;
+}
+tr:nth-child(odd){
+  background-color: #cecece;
 }
 th,
 td {
