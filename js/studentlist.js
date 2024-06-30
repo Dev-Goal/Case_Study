@@ -3,7 +3,7 @@ function StudentList() {
   this.AddStudent = function (addStudent) {
     this.newStudentList.push(addStudent);
   };
-  this.EditStudent = function (editStudent) {};
+
   this.RemoveStudent = function (removeStudent) {
     for (let i = 0; i < removeStudent.length; i++) {
       for (let j = 0; j < this.newStudentList.length; j++) {
@@ -23,5 +23,30 @@ function StudentList() {
       }
     }
     return listSearch;
+  };
+  this.SearchStudentOfMasv = function (masv) {
+    for (let i = 0; i < this.newStudentList.length; i++) {
+      const st = this.newStudentList[i];
+      if (st.masv === masv) {
+        return st;
+      }
+    }
+    return null;
+  };
+  this.ChangeStudent = function (changestudent) {
+    for (let i = 0; i < this.newStudentList.length; i++) {
+      const stChange = this.newStudentList[i];
+      if (changestudent.masv == stChange.masv) {
+        stChange.fullname = changestudent.fullname;
+        stChange.gender = changestudent.gender;
+        stChange.birthday = changestudent.birthday;
+        stChange.cityzen = changestudent.cityzen;
+        stChange.school = changestudent.school;
+        stChange.email = changestudent.email;
+        stChange.phone = changestudent.phone;
+        stChange.hometown = changestudent.hometown;
+        stChange.room = changestudent.room;
+      }
+    }
   };
 }

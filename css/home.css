@@ -55,7 +55,7 @@ body {
   cursor: pointer;
 }
 #btnAdd,
-#btnEdit,
+#btnSave,
 #btnRemove,
 #btnSetStorage {
   margin-left: 170px;
@@ -95,8 +95,10 @@ body {
   width: 100%;
   border: 1px solid #000000;
 }
-tr:nth-child(odd){
+
+tr:hover{
   background-color: #cecece;
+  cursor: pointer;
 }
 th,
 td {
