@@ -138,7 +138,7 @@ function UpdateStudent(StudentList) {
   const listTable = ElementID("tbodyStudent");
   listTable.innerHTML = "";
   for (let i = 0; i < StudentList.newStudentList.length; i++) {
-    const st = studentList.newStudentList[i];
+    const st = StudentList.newStudentList[i];
     const tr = document.createElement("tr");
     tr.id = st.masv;
     tr.className = "trStudent";
