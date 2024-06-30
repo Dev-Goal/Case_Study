@@ -1,8 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  /* background: url(https://cdn3.ivivu.com/2023/10/du-lich-hue-ivivu.jpg);
-  background-size: cover; */
+  background: url(https://img4.thuthuatphanmem.vn/uploads/2019/12/16/hinh-nen-4k-do-phan-giai-cao_024351042.jpg);
+  background-size: cover;
+  color: #fff;
 }
 .header {
   margin-top: -30px;
@@ -72,20 +73,18 @@ body {
 }
 
 /* main search  */
-.main__search{
+.main__search {
   margin-top: 50px;
 }
-.label__search{
+.label__search {
   margin-left: 20px;
   font-style: italic;
 }
-#form__search{
+#form__search {
   padding: 5px;
   margin-left: 10px;
   width: 1363px;
 }
-
-
 
 /* maintable css */
 .main__table {
@@ -96,8 +95,15 @@ body {
   border: 1px solid #000000;
 }
 
-tr:hover{
-  background-color: #cecece;
+tr:hover {
+  /* background-color: #cecece; */
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
   cursor: pointer;
 }
 th,

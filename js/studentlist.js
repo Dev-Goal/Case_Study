@@ -18,7 +18,7 @@ function StudentList() {
     const listSearch = new StudentList();
     for (let i = 0; i < this.newStudentList.length; i++) {
       const student = this.newStudentList[i];
-      if (student.masv.search(searchStudent) != -1) {
+      if (student.masv.toLowerCase().trim().search(searchStudent.trim().toLowerCase()) != -1) {
         listSearch.AddStudent(student);
       }
     }

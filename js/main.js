@@ -122,7 +122,16 @@ function AddStudent() {
   );
   studentList.AddStudent(student);
   UpdateStudent(studentList);
-  console.log(studentList);
+  alert("Thêm Sinh viên thành công");
+  ElementID("form__name").value = "";
+  ElementID("form__masv").value = "";
+  ElementID("form__birthday").value = "";
+  ElementID("form__cityzen").value = "";
+  ElementID("form__school").value = "";
+  ElementID("form__email").value = "";
+  ElementID("form__phone").value = "";
+  ElementID("form__hometown").value = "";
+  ElementID("form__room").value = "";
 }
 
 function UpdateStudent(StudentList) {
@@ -192,8 +201,21 @@ function RemoveStudent() {
       listChoseMaSV.push(listMaSV[i].value);
     }
   }
-  studentList.RemoveStudent(listChoseMaSV);
-  UpdateStudent(studentList);
+  const confirmRemove = confirm("Bạn có chắc chăn muốn xóa");
+  if (confirmRemove) {
+    studentList.RemoveStudent(listChoseMaSV);
+    UpdateStudent(studentList);
+    alert("Xóa Sinh viên thành công");
+    ElementID("form__name").value = "";
+    ElementID("form__masv").value = "";
+    ElementID("form__birthday").value = "";
+    ElementID("form__cityzen").value = "";
+    ElementID("form__school").value = "";
+    ElementID("form__email").value = "";
+    ElementID("form__phone").value = "";
+    ElementID("form__hometown").value = "";
+    ElementID("form__room").value = "";
+  }
 }
 function SearchStudent() {
   const search = ElementID("form__search").value;
@@ -215,7 +237,7 @@ function EditStudent(masv) {
     ElementID("form__room").value = student.room;
   }
 }
-function SaveStudent(){
+function SaveStudent() {
   fullname = ElementID("form__name").value;
   masv = ElementID("form__masv").value;
   gender = "";
@@ -331,6 +353,19 @@ function SaveStudent(){
     hometown,
     room
   );
-  studentList.ChangeStudent(student);
-  UpdateStudent(studentList);
+  const confirmSave = confirm("Bạn có chắc chắn những thông tin đã sửa");
+  if (confirmSave) {
+    studentList.ChangeStudent(student);
+    UpdateStudent(studentList);
+  }
+  alert("Chỉnh sửa sinh viên thành công");
+  ElementID("form__name").value = "";
+  ElementID("form__masv").value = "";
+  ElementID("form__birthday").value = "";
+  ElementID("form__cityzen").value = "";
+  ElementID("form__school").value = "";
+  ElementID("form__email").value = "";
+  ElementID("form__phone").value = "";
+  ElementID("form__hometown").value = "";
+  ElementID("form__room").value = "";
 }
