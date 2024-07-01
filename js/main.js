@@ -87,7 +87,10 @@ function AddStudent() {
     document.getElementById("room__error").innerHTML =
       "Vui lòng bố trí phòng ở cho sinh viên";
     error++;
-  } else {
+  }else if(CheckAmount(room)){
+
+  }
+   else {
     document.getElementById("room__error").innerHTML = "";
   }
 
@@ -143,6 +146,16 @@ function AddStudent() {
     ElementID("form__room").value = "";
   }
 }
+// function CheckAmount(f){
+//   const ArrayRoom = [];
+//   ArrayRoom.push(studentList.room);
+//   const AmmountRoom = ElementID("form__room").value;
+//   if(ArrayRoom.includes(AmmountRoom)){
+//     if(ArrayRoom < 8){
+//         ArrayRoom.push(AmmountRoom)
+//     }
+//   }
+// }
 
 function UpdateStudent(StudentList) {
   const listTable = ElementID("tbodyStudent");

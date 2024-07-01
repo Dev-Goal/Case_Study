@@ -14,20 +14,4 @@ function Validation() {
   this.CheckNumber = function (value) {
     return !isNaN(Number(value));
   };
-//   this.checkNumberPhone = function (phone) {
-//     const re = /^\d+$/;
-//     if (re.test(phone) && phone == 10) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   };
-//   this.checkNumberCCCD = function (cityzen) {
-//     const re = /^\d+$/;
-//     if (re.test(cityzen) && cityzen == 12) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   };
 }
