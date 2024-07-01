@@ -8,7 +8,8 @@ function Student(
   email,
   phone,
   hometown,
-  room
+  room,
+  image
 ) {
   this.fullname = fullname;
   this.masv = masv;
@@ -20,4 +21,5 @@ function Student(
   this.phone = phone;
   this.hometown = hometown;
   this.room = room;
+  this.image = image;
 }

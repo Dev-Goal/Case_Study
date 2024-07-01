@@ -4,6 +4,18 @@ function ElementID(id) {
   const element = document.getElementById(id);
   return element;
 }
+function clear() {
+  ElementID("form__name").value = "";
+  ElementID("form__masv").value = "";
+  ElementID("form__birthday").value = "";
+  ElementID("form__cityzen").value = "";
+  ElementID("form__school").value = "";
+  ElementID("form__email").value = "";
+  ElementID("form__phone").value = "";
+  ElementID("form__hometown").value = "";
+  ElementID("form__room").value = "";
+  ElementID("form__image").value = "";
+}
 function AddStudent() {
   fullname = ElementID("form__name").value;
   masv = ElementID("form__masv").value;
@@ -15,92 +27,93 @@ function AddStudent() {
   phone = ElementID("form__phone").value;
   hometown = ElementID("form__hometown").value;
   room = ElementID("form__room").value;
+  image = ElementID("form__image").value;
   let error = 0;
   //Kiểm tra fullname
   if (validate.CheckNull(fullname)) {
-    document.getElementById("fullname__error").innerHTML =
-      "Vui lòng điền Họ và tên";
+    ElementID("fullname__error").innerHTML = "Vui lòng điền Họ và tên";
     error++;
   } else {
-    document.getElementById("fullname__error").innerHTML = "";
+    ElementID("fullname__error").innerHTML = "";
   }
   //Kiểm tra mã sinh viên
   if (validate.CheckNull(masv)) {
-    document.getElementById("masv__error").innerHTML =
-      "Vui lòng điền Mã sinh viên";
+    ElementID("masv__error").innerHTML = "Vui lòng điền Mã sinh viên";
     error++;
   } else {
-    document.getElementById("masv__error").innerHTML = "";
+    ElementID("masv__error").innerHTML = "";
   }
   //   Kiểm tra cccd
   if (validate.CheckNull(cityzen)) {
-    document.getElementById("cityzen__error").innerHTML = "Vui lòng điền CCCD";
+    ElementID("cityzen__error").innerHTML = "Vui lòng điền CCCD";
     error++;
   } else if (!validate.CheckNumber(cityzen)) {
-    document.getElementById("cityzen__error").innerHTML =
-      "CCCD được định là số và có 12 số";
+    ElementID("cityzen__error").innerHTML = "CCCD được định là số và có 12 số";
     error++;
   } else {
-    document.getElementById("cityzen__error").innerHTML = "";
+    ElementID("cityzen__error").innerHTML = "";
   }
   //Kiểm tra trường
   if (validate.CheckNull(school)) {
-    document.getElementById("school__error").innerHTML =
-      "Vui lòng điền Trường đang theo học";
+    ElementID("school__error").innerHTML = "Vui lòng điền Trường đang theo học";
     error++;
   } else {
-    document.getElementById("school__error").innerHTML = "";
+    ElementID("school__error").innerHTML = "";
   }
   //Kiểm tra email
   if (validate.CheckNull(email)) {
-    document.getElementById("email__error").innerHTML = "Vui lòng điền Email";
+    ElementID("email__error").innerHTML = "Vui lòng điền Email";
     error++;
   } else if (!validate.CheckEmail(email)) {
-    document.getElementById("email__error").innerHTML =
-      "Email không đúng định dạng";
+    ElementID("email__error").innerHTML = "Email không đúng định dạng";
     error++;
   } else {
-    document.getElementById("email__error").innerHTML = "";
+    ElementID("email__error").innerHTML = "";
   }
   //Kiểm tra số điện thoại
   if (validate.CheckNull(phone)) {
-    document.getElementById("phone__error").innerHTML =
-      "Vui lòng điền Số điện thoại";
+    ElementID("phone__error").innerHTML = "Vui lòng điền Số điện thoại";
     error++;
   } else if (!validate.CheckNumber(phone)) {
-    document.getElementById("phone__error").innerHTML =
+    ElementID("phone__error").innerHTML =
       "Số điện thoại được định là số và có 10 số";
     error++;
   } else {
-    document.getElementById("phone__error").innerHTML = "";
+    ElementID("phone__error").innerHTML = "";
   }
   //Kiểm tra quê quán
   if (validate.CheckNull(hometown)) {
-    document.getElementById("hometown__error").innerHTML =
-      "Vui lòng điền Quê quán";
+    ElementID("hometown__error").innerHTML = "Vui lòng điền Quê quán";
     error++;
   } else {
-    document.getElementById("hometown__error").innerHTML = "";
+    ElementID("hometown__error").innerHTML = "";
   }
   //Kiểm tra phòng
   if (validate.CheckNull(room)) {
-    document.getElementById("room__error").innerHTML =
+    ElementID("room__error").innerHTML =
       "Vui lòng bố trí phòng ở cho sinh viên";
     error++;
   } else {
-    document.getElementById("room__error").innerHTML = "";
+    ElementID("room__error").innerHTML = "";
+  }
+  //Kiểm tra ảnh
+  if (validate.CheckNull(image)) {
+    ElementID("image__error").innerHTML = "Vui lòng chọn ảnh";
+    error++;
+  } else {
+    ElementID("image__error").innerHTML = "";
   }
 
   //Kiểm tra giới tính
   if (ElementID("male").checked) {
     gender = ElementID("male").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   } else if (ElementID("female").checked) {
     gender = ElementID("female").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   } else if (ElementID("other").checked) {
     gender = ElementID("other").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   }
 
   //Định dạng lại ngày tháng năm
@@ -111,8 +124,7 @@ function AddStudent() {
     const year = String(birthdayDate.getFullYear());
     const fomartDate = `${day}/${month}/${year}`;
   } else {
-    document.getElementById("birthdayError").innerHTML =
-      "Vui lòng chọn ngày sinh";
+    ElementID("birthdayError").innerHTML = "Vui lòng chọn ngày sinh";
     error++;
   }
   //Thêm Sinh Viên
@@ -127,34 +139,17 @@ function AddStudent() {
       email,
       phone,
       hometown,
-      room
+      room,
+      image
     );
     studentList.AddStudent(student);
     UpdateStudent(studentList);
     const jsonStudentList = JSON.stringify(studentList.newStudentList);
     localStorage.setItem("StudentList", jsonStudentList);
     alert("Thêm Sinh viên thành công");
-    ElementID("form__name").value = "";
-    ElementID("form__masv").value = "";
-    ElementID("form__birthday").value = "";
-    ElementID("form__cityzen").value = "";
-    ElementID("form__school").value = "";
-    ElementID("form__email").value = "";
-    ElementID("form__phone").value = "";
-    ElementID("form__hometown").value = "";
-    ElementID("form__room").value = "";
+    clear();
   }
 }
-// function CheckAmount(f){
-//   const ArrayRoom = [];
-//   ArrayRoom.push(studentList.room);
-//   const AmmountRoom = ElementID("form__room").value;
-//   if(ArrayRoom.includes(AmmountRoom)){
-//     if(ArrayRoom < 8){
-//         ArrayRoom.push(AmmountRoom)
-//     }
-//   }
-// }
 
 function UpdateStudent(StudentList) {
   const listTable = ElementID("tbodyStudent");
@@ -184,6 +179,14 @@ function UpdateStudent(StudentList) {
     const tdPhone = CreateTd("phone", st.phone);
     const tdHometown = CreateTd("hometown", st.hometown);
     const tdRoom = CreateTd("room", st.room);
+    const tdImage = document.createElement("td");
+    const imageStudent = document.createElement("input");
+    imageStudent.setAttribute("type", "image");
+    imageStudent.setAttribute("width", "80px");
+    imageStudent.setAttribute("height", "80px");
+    imageStudent.setAttribute("style", "border-radius: 99px");
+    imageStudent.setAttribute("src", `${st.image}`);
+    tdImage.append(imageStudent);
     tr.appendChild(tdCheckBox);
     tr.appendChild(tdFullname);
     tr.appendChild(tdMasv);
@@ -195,6 +198,7 @@ function UpdateStudent(StudentList) {
     tr.appendChild(tdPhone);
     tr.appendChild(tdHometown);
     tr.appendChild(tdRoom);
+    tr.appendChild(tdImage);
     listTable.appendChild(tr);
   }
 }
@@ -216,6 +220,7 @@ function GetStorage() {
   UpdateStudent(studentList);
 }
 GetStorage();
+
 function RemoveStudent() {
   const listMaSV = document.getElementsByClassName("cbMasv");
   const listChoseMaSV = [];
@@ -229,17 +234,10 @@ function RemoveStudent() {
     studentList.RemoveStudent(listChoseMaSV);
     UpdateStudent(studentList);
     alert("Xóa Sinh viên thành công");
-    ElementID("form__name").value = "";
-    ElementID("form__masv").value = "";
-    ElementID("form__birthday").value = "";
-    ElementID("form__cityzen").value = "";
-    ElementID("form__school").value = "";
-    ElementID("form__email").value = "";
-    ElementID("form__phone").value = "";
-    ElementID("form__hometown").value = "";
-    ElementID("form__room").value = "";
+    clear();
   }
 }
+
 function SearchStudent() {
   const search = ElementID("form__search").value;
   const listSearchStudent = studentList.SearchStudent(search);
@@ -258,6 +256,7 @@ function EditStudent(masv) {
     ElementID("form__phone").value = student.phone;
     ElementID("form__hometown").value = student.hometown;
     ElementID("form__room").value = student.room;
+    ElementID("form__image").value = student.image;
   }
 }
 function SaveStudent() {
@@ -271,84 +270,83 @@ function SaveStudent() {
   phone = ElementID("form__phone").value;
   hometown = ElementID("form__hometown").value;
   room = ElementID("form__room").value;
+  image = ElementID("form__image").value;
 
   //Kiểm tra fullname
   if (validate.CheckNull(fullname)) {
-    document.getElementById("fullname__error").innerHTML =
-      "Vui lòng điền Họ và tên";
+    ElementID("fullname__error").innerHTML = "Vui lòng điền Họ và tên";
   } else {
-    document.getElementById("fullname__error").innerHTML = "";
+    ElementID("fullname__error").innerHTML = "";
   }
   //Kiểm tra mã sinh viên
   if (validate.CheckNull(masv)) {
-    document.getElementById("masv__error").innerHTML =
-      "Vui lòng điền Mã sinh viên";
+    ElementID("masv__error").innerHTML = "Vui lòng điền Mã sinh viên";
   } else {
-    document.getElementById("masv__error").innerHTML = "";
+    ElementID("masv__error").innerHTML = "";
   }
   //   Kiểm tra cccd
   if (validate.CheckNull(cityzen)) {
-    document.getElementById("cityzen__error").innerHTML = "Vui lòng điền CCCD";
+    ElementID("cityzen__error").innerHTML = "Vui lòng điền CCCD";
   } else if (!validate.CheckNumber(cityzen)) {
-    document.getElementById("cityzen__error").innerHTML =
-      "CCCD được định là số và có 12 số";
+    ElementID("cityzen__error").innerHTML = "CCCD được định là số và có 12 số";
   } else {
-    document.getElementById("cityzen__error").innerHTML = "";
+    ElementID("cityzen__error").innerHTML = "";
   }
   //Kiểm tra trường
   if (validate.CheckNull(school)) {
-    document.getElementById("school__error").innerHTML =
-      "Vui lòng điền Trường đang theo học";
+    ElementID("school__error").innerHTML = "Vui lòng điền Trường đang theo học";
   } else {
-    document.getElementById("school__error").innerHTML = "";
+    ElementID("school__error").innerHTML = "";
   }
   //Kiểm tra email
   if (validate.CheckNull(email)) {
-    document.getElementById("email__error").innerHTML = "Vui lòng điền Email";
+    ElementID("email__error").innerHTML = "Vui lòng điền Email";
   } else if (!validate.CheckEmail(email)) {
-    document.getElementById("email__error").innerHTML =
-      "Email không đúng định dạng";
+    ElementID("email__error").innerHTML = "Email không đúng định dạng";
   } else {
-    document.getElementById("email__error").innerHTML = "";
+    ElementID("email__error").innerHTML = "";
   }
   //Kiểm tra số điện thoại
   if (validate.CheckNull(phone)) {
-    document.getElementById("phone__error").innerHTML =
-      "Vui lòng điền Số điện thoại";
+    ElementID("phone__error").innerHTML = "Vui lòng điền Số điện thoại";
   } else if (!validate.CheckNumber(phone)) {
-    document.getElementById("phone__error").innerHTML =
+    ElementID("phone__error").innerHTML =
       "Số điện thoại được định là số và có 10 số";
   } else {
-    document.getElementById("phone__error").innerHTML = "";
+    ElementID("phone__error").innerHTML = "";
   }
   //Kiểm tra quê quán
   if (validate.CheckNull(hometown)) {
-    document.getElementById("hometown__error").innerHTML =
-      "Vui lòng điền Quê quán";
+    ElementID("hometown__error").innerHTML = "Vui lòng điền Quê quán";
   } else {
-    document.getElementById("hometown__error").innerHTML = "";
+    ElementID("hometown__error").innerHTML = "";
   }
   //Kiểm tra phòng
   if (validate.CheckNull(room)) {
-    document.getElementById("room__error").innerHTML =
+    ElementID("room__error").innerHTML =
       "Vui lòng bố trí phòng ở cho sinh viên";
   } else {
-    document.getElementById("room__error").innerHTML = "";
+    ElementID("room__error").innerHTML = "";
+  }
+  //Kiểm tra ảnh
+  if (validate.CheckNull(image)) {
+    ElementID("image__error").innerHTML = "Vui lòng chọn ảnh";
+  } else {
+    ElementID("image__error").innerHTML = "";
   }
 
   //Kiểm tra giới tính
   if (ElementID("male").checked) {
     gender = ElementID("male").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   } else if (ElementID("female").checked) {
     gender = ElementID("female").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   } else if (ElementID("other").checked) {
     gender = ElementID("other").value;
-    document.getElementById("gender__error").innerHTML = "";
+    ElementID("gender__error").innerHTML = "";
   } else {
-    document.getElementById("gender__error").innerHTML =
-      "Bạn chưa chọn giới tính";
+    ElementID("gender__error").innerHTML = "Bạn chưa chọn giới tính";
   }
 
   //Định dạng lại ngày tháng năm
@@ -359,8 +357,7 @@ function SaveStudent() {
     const year = String(birthdayDate.getFullYear());
     const fomartDate = `${day}/${month}/${year}`;
   } else {
-    document.getElementById("birthdayError").innerHTML =
-      "Vui lòng chọn ngày sinh";
+    ElementID("birthdayError").innerHTML = "Vui lòng chọn ngày sinh";
   }
 
   //Thêm Sinh Viên
@@ -374,7 +371,8 @@ function SaveStudent() {
     email,
     phone,
     hometown,
-    room
+    room,
+    image
   );
   const confirmSave = confirm("Bạn có chắc chắn những thông tin đã sửa");
   if (confirmSave) {
@@ -382,13 +380,5 @@ function SaveStudent() {
     UpdateStudent(studentList);
   }
   alert("Chỉnh sửa sinh viên thành công");
-  ElementID("form__name").value = "";
-  ElementID("form__masv").value = "";
-  ElementID("form__birthday").value = "";
-  ElementID("form__cityzen").value = "";
-  ElementID("form__school").value = "";
-  ElementID("form__email").value = "";
-  ElementID("form__phone").value = "";
-  ElementID("form__hometown").value = "";
-  ElementID("form__room").value = "";
+  clear();
 }

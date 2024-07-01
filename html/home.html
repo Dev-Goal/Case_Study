@@ -38,7 +38,7 @@
               value="Nam"
               id="male"
               style="cursor: pointer"
-              
+              checked
             />
             Nam
             <input
@@ -107,6 +107,14 @@
             <input type="text" id="form__room" />
             <span id="room__error" class="error"></span>
           </div>
+          <div class="form__group form__label">
+            <label for="form__image">Ảnh</label>
+            <input type="image" src="" alt="">
+          </div>
+          <div class="form__group form__input">
+            <input type="text" id="form__image">
+            <span id="image__error" class="error"></span>
+          </div>
           <div class="form__group form__button">
             <input
               type="button"
@@ -166,7 +174,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th colspan="11">Danh sách sinh viên ở ký túc xá</th>
+              <th colspan="12">Danh sách sinh viên ở ký túc xá</th>
             </tr>
             <tr>
               <th></th>
@@ -180,6 +188,7 @@
               <th>Số điện thoại</th>
               <th>Quê quán</th>
               <th>Phòng được bố trí</th>
+              <th>Ảnh</th>
             </tr>
           </thead>
           <tbody id="tbodyStudent">

@@ -47,6 +47,7 @@ function StudentList() {
         stChange.phone = changestudent.phone;
         stChange.hometown = changestudent.hometown;
         stChange.room = changestudent.room;
+        stChange.image = changestudent.image;
       }
     }
   };
