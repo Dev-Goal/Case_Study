@@ -15,11 +15,12 @@ function AddStudent() {
   phone = ElementID("form__phone").value;
   hometown = ElementID("form__hometown").value;
   room = ElementID("form__room").value;
-
+  const error = 0;
   //Kiểm tra fullname
   if (validate.CheckNull(fullname)) {
     document.getElementById("fullname__error").innerHTML =
       "Vui lòng điền Họ và tên";
+    error++;
   } else {
     document.getElementById("fullname__error").innerHTML = "";
   }
@@ -27,15 +28,18 @@ function AddStudent() {
   if (validate.CheckNull(masv)) {
     document.getElementById("masv__error").innerHTML =
       "Vui lòng điền Mã sinh viên";
+    error++;
   } else {
     document.getElementById("masv__error").innerHTML = "";
   }
   //   Kiểm tra cccd
   if (validate.CheckNull(cityzen)) {
     document.getElementById("cityzen__error").innerHTML = "Vui lòng điền CCCD";
+    error++;
   } else if (!validate.CheckNumber(cityzen)) {
     document.getElementById("cityzen__error").innerHTML =
       "CCCD được định là số và có 12 số";
+    error++;
   } else {
     document.getElementById("cityzen__error").innerHTML = "";
   }
@@ -43,15 +47,18 @@ function AddStudent() {
   if (validate.CheckNull(school)) {
     document.getElementById("school__error").innerHTML =
       "Vui lòng điền Trường đang theo học";
+    error++;
   } else {
     document.getElementById("school__error").innerHTML = "";
   }
   //Kiểm tra email
   if (validate.CheckNull(email)) {
     document.getElementById("email__error").innerHTML = "Vui lòng điền Email";
+    error++;
   } else if (!validate.CheckEmail(email)) {
     document.getElementById("email__error").innerHTML =
       "Email không đúng định dạng";
+    error++;
   } else {
     document.getElementById("email__error").innerHTML = "";
   }
@@ -59,9 +66,11 @@ function AddStudent() {
   if (validate.CheckNull(phone)) {
     document.getElementById("phone__error").innerHTML =
       "Vui lòng điền Số điện thoại";
+    error++;
   } else if (!validate.CheckNumber(phone)) {
     document.getElementById("phone__error").innerHTML =
       "Số điện thoại được định là số và có 10 số";
+    error++;
   } else {
     document.getElementById("phone__error").innerHTML = "";
   }
@@ -69,6 +78,7 @@ function AddStudent() {
   if (validate.CheckNull(hometown)) {
     document.getElementById("hometown__error").innerHTML =
       "Vui lòng điền Quê quán";
+    error++;
   } else {
     document.getElementById("hometown__error").innerHTML = "";
   }
@@ -76,6 +86,7 @@ function AddStudent() {
   if (validate.CheckNull(room)) {
     document.getElementById("room__error").innerHTML =
       "Vui lòng bố trí phòng ở cho sinh viên";
+    error++;
   } else {
     document.getElementById("room__error").innerHTML = "";
   }
@@ -90,9 +101,6 @@ function AddStudent() {
   } else if (ElementID("other").checked) {
     gender = ElementID("other").value;
     document.getElementById("gender__error").innerHTML = "";
-  } else {
-    document.getElementById("gender__error").innerHTML =
-      "Bạn chưa chọn giới tính";
   }
 
   //Định dạng lại ngày tháng năm
@@ -105,33 +113,35 @@ function AddStudent() {
   } else {
     document.getElementById("birthdayError").innerHTML =
       "Vui lòng chọn ngày sinh";
+    error++;
   }
-
   //Thêm Sinh Viên
-  const student = new Student(
-    fullname,
-    masv,
-    gender,
-    birthday,
-    cityzen,
-    school,
-    email,
-    phone,
-    hometown,
-    room
-  );
-  studentList.AddStudent(student);
-  UpdateStudent(studentList);
-  alert("Thêm Sinh viên thành công");
-  ElementID("form__name").value = "";
-  ElementID("form__masv").value = "";
-  ElementID("form__birthday").value = "";
-  ElementID("form__cityzen").value = "";
-  ElementID("form__school").value = "";
-  ElementID("form__email").value = "";
-  ElementID("form__phone").value = "";
-  ElementID("form__hometown").value = "";
-  ElementID("form__room").value = "";
+  if (error == 0) {
+    const student = new Student(
+      fullname,
+      masv,
+      gender,
+      birthday,
+      cityzen,
+      school,
+      email,
+      phone,
+      hometown,
+      room
+    );
+    studentList.AddStudent(student);
+    UpdateStudent(studentList);
+    alert("Thêm Sinh viên thành công");
+    ElementID("form__name").value = "";
+    ElementID("form__masv").value = "";
+    ElementID("form__birthday").value = "";
+    ElementID("form__cityzen").value = "";
+    ElementID("form__school").value = "";
+    ElementID("form__email").value = "";
+    ElementID("form__phone").value = "";
+    ElementID("form__hometown").value = "";
+    ElementID("form__room").value = "";
+  }
 }
 
 function UpdateStudent(StudentList) {
@@ -148,6 +158,7 @@ function UpdateStudent(StudentList) {
     const cbMasv = document.createElement("input");
     cbMasv.setAttribute("class", "cbMasv");
     cbMasv.setAttribute("type", "checkbox");
+    cbMasv.setAttribute("style","cursor: pointer")
     cbMasv.setAttribute("value", st.masv);
     tdCheckBox.append(cbMasv);
     // console.log(cbMasv);
