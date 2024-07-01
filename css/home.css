@@ -51,7 +51,8 @@ body {
 #btnSave,
 #btnRemove,
 #btnSetStorage {
-  margin-left: 170px;
+  margin-left: 70px;
+  float: right;
 }
 #birthdayError {
   color: red;

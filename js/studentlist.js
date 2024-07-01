@@ -2,6 +2,7 @@ function StudentList() {
   this.newStudentList = [];
   this.AddStudent = function (addStudent) {
     this.newStudentList.push(addStudent);
+    // console.log(this.newStudentList);
   };
 
   this.RemoveStudent = function (removeStudent) {

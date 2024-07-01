@@ -38,7 +38,7 @@
               value="Nam"
               id="male"
               style="cursor: pointer"
-              checked
+              
             />
             Nam
             <input
@@ -104,7 +104,7 @@
             <label for="form__room">Bố trí phòng ở</label>
           </div>
           <div class="form__group form__input">
-            <input type="text" id="form__room" onchange="CheckAmount()"/>
+            <input type="text" id="form__room" />
             <span id="room__error" class="error"></span>
           </div>
           <div class="form__group form__button">
@@ -129,13 +129,13 @@
               id="btnRemove"
               onclick="RemoveStudent()"
             />
-            <input
+            <!-- <input
               type="button"
               class="button"
               value="Lưu Storage"
               id="btnSetStorage"
               onclick="SetStorage()"
-            />
+            /> -->
             <!-- <input
               type="button"
               class="button"

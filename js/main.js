@@ -15,7 +15,7 @@ function AddStudent() {
   phone = ElementID("form__phone").value;
   hometown = ElementID("form__hometown").value;
   room = ElementID("form__room").value;
-  const error = 0;
+  let error = 0;
   //Kiểm tra fullname
   if (validate.CheckNull(fullname)) {
     document.getElementById("fullname__error").innerHTML =
@@ -87,10 +87,7 @@ function AddStudent() {
     document.getElementById("room__error").innerHTML =
       "Vui lòng bố trí phòng ở cho sinh viên";
     error++;
-  }else if(CheckAmount(room)){
-
-  }
-   else {
+  } else {
     document.getElementById("room__error").innerHTML = "";
   }
 
@@ -134,6 +131,8 @@ function AddStudent() {
     );
     studentList.AddStudent(student);
     UpdateStudent(studentList);
+    const jsonStudentList = JSON.stringify(studentList.newStudentList);
+    localStorage.setItem("StudentList", jsonStudentList);
     alert("Thêm Sinh viên thành công");
     ElementID("form__name").value = "";
     ElementID("form__masv").value = "";
@@ -171,7 +170,7 @@ function UpdateStudent(StudentList) {
     const cbMasv = document.createElement("input");
     cbMasv.setAttribute("class", "cbMasv");
     cbMasv.setAttribute("type", "checkbox");
-    cbMasv.setAttribute("style","cursor: pointer")
+    cbMasv.setAttribute("style", "cursor: pointer");
     cbMasv.setAttribute("value", st.masv);
     tdCheckBox.append(cbMasv);
     // console.log(cbMasv);
@@ -205,10 +204,10 @@ function CreateTd(className, value) {
   td.innerHTML = value;
   return td;
 }
-function SetStorage() {
-  const jsonStudentList = JSON.stringify(studentList.newStudentList);
-  localStorage.setItem("StudentList", jsonStudentList);
-}
+// function SetStorage() {
+//   const jsonStudentList = JSON.stringify(studentList.newStudentList);
+//   localStorage.setItem("StudentList", jsonStudentList);
+// }
 // SetStorage();
 function GetStorage() {
   const jsonStudentList = localStorage.getItem("StudentList");
