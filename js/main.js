@@ -229,10 +229,13 @@ function RemoveStudent() {
       listChoseMaSV.push(listMaSV[i].value);
     }
   }
+
   const confirmRemove = confirm("Bạn có chắc chăn muốn xóa");
   if (confirmRemove) {
     studentList.RemoveStudent(listChoseMaSV);
     UpdateStudent(studentList);
+    const jsonStudentList = JSON.stringify(studentList.newStudentList);
+    localStorage.setItem("StudentList", jsonStudentList);
     alert("Xóa Sinh viên thành công");
     clear();
   }
@@ -378,6 +381,8 @@ function SaveStudent() {
   if (confirmSave) {
     studentList.ChangeStudent(student);
     UpdateStudent(studentList);
+    const jsonStudentList = JSON.stringify(studentList.newStudentList);
+    localStorage.setItem("StudentList", jsonStudentList);
   }
   alert("Chỉnh sửa sinh viên thành công");
   clear();

@@ -3,6 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
     <title>Trang đăng ký ở ký túc xá</title>
     <link rel="stylesheet" href="../css/home.css" />
   </head>
@@ -63,7 +80,7 @@
           </div>
           <div class="form__group form__input">
             <input type="date" id="form__birthday" />
-            <span id="birthdayError"></span>
+            <span id="birthdayError" class="error"></span>
           </div>
           <div class="form__group form__label">
             <label for="form__cityzen">CCCD</label>
@@ -109,10 +126,10 @@
           </div>
           <div class="form__group form__label">
             <label for="form__image">Ảnh</label>
-            <input type="image" src="" alt="">
+            <input type="image" src="" alt="" />
           </div>
           <div class="form__group form__input">
-            <input type="text" id="form__image">
+            <input type="text" id="form__image" />
             <span id="image__error" class="error"></span>
           </div>
           <div class="form__group form__button">
@@ -165,7 +182,7 @@
         <input
           type="text"
           id="form__search"
-          placeholder="Nhập Mã sinh viên..."
+          placeholder="Nhập thông tin sinh viên..."
           onkeyup="SearchStudent()"
           onchange="SearchStudent()"
         />
@@ -183,11 +200,11 @@
               <th>Giới tính</th>
               <th>Ngày sinh</th>
               <th>CCCD</th>
-              <th>Trường đang học</th>
+              <th>Trường</th>
               <th>Email</th>
               <th>Số điện thoại</th>
               <th>Quê quán</th>
-              <th>Phòng được bố trí</th>
+              <th>Phòng</th>
               <th>Ảnh</th>
             </tr>
           </thead>
