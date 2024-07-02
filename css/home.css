@@ -17,7 +17,6 @@ body {
   color: #fff;
 }
 .header {
-  padding-top: 5px;
   font-size: 1.5rem;
   color: #fff;
   text-align: center;
@@ -28,7 +27,7 @@ body {
 }
 
 /* mainform css */
-.main{
+.main {
   width: 100%;
 }
 .main__form {
@@ -60,6 +59,13 @@ body {
   );
   font-weight: bold;
   cursor: pointer;
+}
+.button:hover {
+  background-image: linear-gradient(
+    93.2deg,
+    rgba(24, 95, 246, 1) 14.4%,
+    rgba(27, 69, 166, 1) 90.8%
+  );
 }
 #btnAdd,
 #btnSave,
